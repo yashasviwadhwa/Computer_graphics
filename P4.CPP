@@ -1,0 +1,17 @@
+#include<iostream.h>
+#include<graphics.h>
+#include<conio.h>
+
+
+void main()
+{
+ int gd=DETECT,gm;
+ initgraph(&gd,&gm,"C:\\turboc3\\bgi");
+ cleardevice();
+ line(50,100,50,200);
+ line(50,200,12
+ 0,100);
+ getch();
+
+
+}

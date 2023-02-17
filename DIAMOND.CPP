@@ -1,0 +1,54 @@
+
+
+#include <graphics.h>
+#include <math.h>
+#include <stdio.h>
+#include<dos.h>
+#include<conio.h>
+
+int abs(int n) { return ((n > 0) ? n : (n * (-1))); }
+
+
+void DDA(int X0, int Y0, int X1, int Y1)
+{
+	// calculate dx & dy
+	int dx = X1 - X0;
+	int dy = Y1 - Y0;
+
+
+	int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
+
+
+	float Xinc = dx / (float)steps;
+	float Yinc = dy / (float)steps;
+
+
+	float X = X0;
+	float Y = Y0;
+	for (int i = 0; i <= steps; i++) {
+		putpixel(round(X), round(Y),RED);
+		X += Xinc;
+		Y += Yinc;
+	      delay(100);
+
+	}
+}
+
+// Driver program
+int main()
+{
+	int gd = DETECT, gm;
+
+	// Initialize graphics function
+	initgraph(&gd, &gm, "C:\\turboc3\\bgi");
+
+	int X0 = 2, Y0 = 2, X1 = 14, Y1 = 16;
+
+	cleardevice();
+       DDA(10,200,100, 100);
+DDA(10,200,70,310);
+DDA(100,100,178,194);
+DDA(70,310,178,194);
+	getch();
+	return 0;
+}
